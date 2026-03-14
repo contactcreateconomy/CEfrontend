@@ -18,7 +18,6 @@ import {
 
 import { categories } from "@/lib/mock-data";
 import type { CategoryKey } from "@/types";
-import { WhatsVibingWidget } from "@/components/layout/whats-vibing-widget";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -121,7 +120,6 @@ export function LeftSidebar() {
         </CardContent>
       </Card>
 
-      <WhatsVibingWidget />
     </aside>
   );
 }

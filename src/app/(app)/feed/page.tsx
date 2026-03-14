@@ -10,6 +10,8 @@
  * - GET /api/campaigns/active
  * - GET /api/notifications/unread-count
  */
+import { Suspense } from "react";
+
 import { FeedClient } from "@/components/feed/feed-client";
 import { TrendSorter } from "@/components/feed/trend-sorter";
 import { comments, posts, users } from "@/lib/mock-data";
@@ -55,10 +57,13 @@ export default function FeedPage({ searchParams }: FeedPageProps) {
     return viralityScore(b) - viralityScore(a);
   });
 
+
   return (
     <section className="space-y-4">
       <header className="card-surface animate-soft-float p-2">
-        <TrendSorter />
+        <Suspense fallback={null}>
+          <TrendSorter />
+        </Suspense>
       </header>
 
       <FeedClient

@@ -107,7 +107,7 @@ function makePost(category: CategoryKey, categoryIndex: number, itemIndex: numbe
   const prompts = categoryPromptMap[category];
   const prompt = prompts[itemIndex % prompts.length];
   const sequence = categoryIndex * 10 + itemIndex + 1;
-  const title = `${prompt} (${itemIndex + 1}/10)`;
+  const title = prompt;
   const createdAt = new Date(
     Date.UTC(2026, 1, 28 - (sequence % 12), 18 - (itemIndex % 7), (itemIndex * 11) % 60),
   );

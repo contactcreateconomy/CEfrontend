@@ -8,3 +8,4 @@ export * from "./campaigns";
 export * from "./settings";
 export * from "./navigation";
 export * from "./vibing-items";
+export * from "./top-post-hero";
