@@ -47,7 +47,7 @@ export function WhatsVibingWidget() {
       </CardHeader>
 
       <CardContent className="flex h-[186px] flex-col justify-between p-4 pt-0">
-        <div className="relative h-full min-h-[140px] overflow-hidden">
+        <div className="relative h-full min-h-[140px] overflow-hidden rounded-[24px]">
           {items.map((item, index) => {
             const category = item.kind.charAt(0).toUpperCase() + item.kind.slice(1);
 
@@ -57,7 +57,7 @@ export function WhatsVibingWidget() {
                 href={item.href}
                 aria-label={`Open trending post ${item.label}`}
                 className={cn(
-                  "group absolute inset-0 flex h-full cursor-pointer flex-col justify-between rounded-[24px] border border-[var(--border-default)]/55 bg-[var(--bg-overlay)]/28 p-4 transition-all duration-500",
+                  "group absolute inset-0 flex h-full cursor-pointer flex-col justify-between rounded-[24px] border border-[var(--border-prominent)] bg-[var(--bg-overlay)]/24 p-4 transition-all duration-500",
                   "hover:border-[var(--border-active)]/45",
                   index === activeIndex
                     ? "z-10 translate-y-0 scale-100 opacity-100"

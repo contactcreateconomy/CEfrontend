@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { BarChart3, ChevronLeft, ChevronRight, MessageSquare, Share2 } from "lucide-react";
+import { BarChart3, ChevronLeft, ChevronRight, MessageSquare, Share2, ArrowRight } from "lucide-react";
 
 import type { TopPostHeroSlide } from "@/lib/adapters/content";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -167,7 +167,7 @@ export function TopPostHeroCarousel({ slides, className }: TopPostHeroCarouselPr
                     href={`/discussions/${currentSlide.slug}`}
                     className={cn(
                       buttonVariants({ variant: "primary", size: "md" }),
-                      "group/cta relative h-10 rounded-full px-6 text-sm font-semibold shadow-[0_6px_18px_rgba(14,165,233,0.28)] hover:shadow-[0_10px_22px_rgba(14,165,233,0.34)]",
+                      "group/cta relative h-10 rounded-full px-6 text-sm font-semibold shadow-none transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(14,165,233,0.34)]",
                     )}
                     aria-label={`Read featured post ${currentSlide.title}`}
                   >
@@ -178,7 +178,10 @@ export function TopPostHeroCarousel({ slides, className }: TopPostHeroCarouselPr
                           "radial-gradient(circle at 35% 50%, rgba(var(--hero-accent),0.4) 0%, rgba(var(--hero-accent),0.06) 62%, transparent 100%)",
                       }}
                     />
-                    <span className="relative z-10">{currentSlide.ctaLabel}</span>
+                    <span className="relative z-10 inline-flex items-center gap-2">
+                      <span>{currentSlide.ctaLabel}</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                    </span>
                   </Link>
                 </motion.div>
               </motion.div>

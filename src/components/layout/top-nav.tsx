@@ -107,7 +107,7 @@ export function TopNav() {
             </Link>
 
             <div className="hidden flex-1 justify-center px-2 md:flex">
-              <label className="relative w-full max-w-[560px]" aria-label="Search">
+              <label className="relative w-full max-w-[480px]" aria-label="Search">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--text-muted)]" />
                 <input
                   type="search"
