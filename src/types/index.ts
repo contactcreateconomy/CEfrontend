@@ -8,3 +8,4 @@ export * from "./campaign";
 export * from "./settings";
 export * from "./api-contracts";
 export * from "./vibing-item";
+export * from "./auth";
