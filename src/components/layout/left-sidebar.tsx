@@ -60,7 +60,7 @@ export function LeftSidebar() {
   const indicatorTop = activeIndex * (itemHeight + itemGap);
 
   return (
-    <aside className="sticky top-20 hidden h-fit w-[240px] shrink-0 space-y-4 lg:block">
+    <aside className="sticky top-[5rem] hidden h-fit w-[240px] shrink-0 space-y-4 lg:block">
       <Card className="animate-soft-float overflow-hidden">
         <CardContent className="p-3">
           <div className="relative rounded-full">
