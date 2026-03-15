@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
 
-import { vibingItems } from "@/lib/mock-data";
+import { getVibingItems } from "@/lib/adapters/content";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 const SLIDE_INTERVAL_MS = 4000;
 
 export function WhatsVibingWidget() {
-  const items = useMemo(() => vibingItems.slice(0, 10), []);
+  const items = useMemo(() => getVibingItems(10), []);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 

@@ -181,7 +181,11 @@ export function FeedClient({ initialPosts, allComments, users, selectedSort }: F
     }
 
     if (navigator.clipboard) {
-      await navigator.clipboard.writeText(shareUrl);
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch {
+        // ignore clipboard errors to avoid breaking the interaction flow
+      }
     }
   }, []);
 

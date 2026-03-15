@@ -6,7 +6,7 @@ import { LeftSidebar } from "@/components/layout/left-sidebar";
 import { RightSidebar } from "@/components/layout/right-sidebar";
 import { TopNav } from "@/components/layout/top-nav";
 import { MobileTabBar } from "@/components/layout/mobile-tab-bar";
-import { getTopPostHeroSlides } from "@/lib/mock-data";
+import { getTopPostHeroSlides } from "@/lib/adapters/content";
 
 interface AppShellProps {
   children: ReactNode;

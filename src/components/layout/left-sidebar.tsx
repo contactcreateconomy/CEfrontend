@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Briefcase,
   GitCompare,
@@ -16,7 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import { categories } from "@/lib/mock-data";
+import { getCategories } from "@/lib/adapters/content";
 import type { CategoryKey } from "@/types";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,7 +36,9 @@ const categoryIconMap: Record<CategoryKey, LucideIcon> = {
 };
 
 export function LeftSidebar() {
+  const router = useRouter();
   const searchParams = useSearchParams();
+  const categories = getCategories();
   const selectedCategory = searchParams.get("category");
 
   const discoverItems = [
@@ -74,6 +76,7 @@ export function LeftSidebar() {
               movementDuration={0.65}
             />
             <Button
+              onClick={() => router.push("/new-post")}
               className="relative z-10 h-10 w-full rounded-full text-base font-semibold !text-black shadow-[0_8px_24px_rgba(14,165,233,0.28)] transition-all duration-300 hover:shadow-[0_10px_28px_rgba(14,165,233,0.35)]"
             >
               + Start Discussion

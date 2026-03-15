@@ -6,8 +6,7 @@ import { useEffect, useState } from "react";
 import { Bell, Moon, Search, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { primaryNav } from "@/lib/mock-data";
-import { getUnreadNotifications } from "@/lib/adapters/content";
+import { getPrimaryNav, getUnreadNotifications } from "@/lib/adapters/content";
 import { cn } from "@/lib/utils";
 import { CreateconomyLogoMark } from "@/components/ui/createconomy-logo-mark";
 import { useScroll } from "@/components/ui/use-scroll";
@@ -15,6 +14,7 @@ import { useScroll } from "@/components/ui/use-scroll";
 export function TopNav() {
   const pathname = usePathname();
   const { resolvedTheme, setTheme } = useTheme();
+  const navItems = getPrimaryNav();
   const unread = getUnreadNotifications("u1").length;
   const [mounted, setMounted] = useState(false);
   const scrolled = useScroll(10);
@@ -41,7 +41,7 @@ export function TopNav() {
             </Link>
 
             <nav className="hidden items-center gap-1 lg:flex">
-              {primaryNav.map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

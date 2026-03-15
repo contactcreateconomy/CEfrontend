@@ -1,11 +1,54 @@
 import {
+  campaigns,
   categories,
   comments,
+  defaultSettings,
+  getTopPostHeroSlides as getTopPostHeroSlidesFromMock,
   leaderboard,
   notifications,
   posts,
+  primaryNav,
   users,
+  vibingItems,
 } from "@/lib/mock-data";
+
+export type { TopPostHeroSlide } from "@/lib/mock-data";
+
+export function getPrimaryNav() {
+  return primaryNav;
+}
+
+export function getCategories() {
+  return categories;
+}
+
+export function getFeedData() {
+  return {
+    posts,
+    comments,
+    users,
+  };
+}
+
+export function getVibingItems(limit = 10) {
+  return vibingItems.slice(0, limit);
+}
+
+export function getCampaigns() {
+  return campaigns;
+}
+
+export function getNotificationsForUser(userId: string) {
+  return notifications.filter((notification) => notification.userId === userId);
+}
+
+export function getDefaultSettings() {
+  return defaultSettings;
+}
+
+export function getTopPostHeroSlides() {
+  return getTopPostHeroSlidesFromMock(posts);
+}
 
 export function getPostBySlug(slug: string) {
   return posts.find((post) => post.slug === slug) ?? null;

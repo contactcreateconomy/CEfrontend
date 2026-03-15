@@ -14,7 +14,7 @@ import { Suspense } from "react";
 
 import { FeedClient } from "@/components/feed/feed-client";
 import { TrendSorter } from "@/components/feed/trend-sorter";
-import { comments, posts, users } from "@/lib/mock-data";
+import { getFeedData } from "@/lib/adapters/content";
 import type { Post } from "@/types";
 
 interface FeedPageProps {
@@ -29,6 +29,7 @@ function viralityScore(post: Post) {
 }
 
 export default function FeedPage({ searchParams }: FeedPageProps) {
+  const { posts, comments, users } = getFeedData();
   const selectedCategory = searchParams?.category;
   const selectedSort = searchParams?.sort ?? "top";
 

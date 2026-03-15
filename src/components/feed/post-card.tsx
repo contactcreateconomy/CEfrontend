@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import type { Comment, Post, User } from "@/types";
-import { categories } from "@/lib/mock-data";
+import { getCategories } from "@/lib/adapters/content";
 import { CommentsPreviewCycler } from "@/components/feed/comments-preview-cycler";
 import { PostActionsMenu } from "@/components/feed/post-actions-menu";
 import { PostInteractionRow } from "@/components/feed/post-interaction-row";
@@ -39,6 +39,7 @@ export function PostCard({
   onShare,
 }: PostCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const categories = getCategories();
   const category = categories.find((item) => item.key === post.category) ?? null;
 
   const previewComments = comments.slice(0, 4).map((comment) => {
