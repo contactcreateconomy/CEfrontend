@@ -41,7 +41,7 @@ export function getTopPostHeroSlides(sourcePosts: Post[] = posts): TopPostHeroSl
   return topPostHeroSelection.reduce<TopPostHeroSlide[]>((slides, item) => {
     const post = sourcePosts.find((entry) => entry.id === item.postId);
 
-    if (!post) {
+    if (!post || !post.coverImage) {
       return slides;
     }
 

@@ -120,7 +120,7 @@ function makePost(category: CategoryKey, categoryIndex: number, itemIndex: numbe
       "Practical field notes from creator workflows with metrics, trade-offs, and what to apply this week.",
     body:
       "Detailed community post with examples, implementation notes, and discussion prompts for creators using AI in production.",
-    coverImage: imagePool[(sequence - 1) % imagePool.length],
+    coverImage: sequence % 2 === 0 ? imagePool[(sequence - 1) % imagePool.length] : undefined,
     category,
     authorId: userIds[(sequence - 1) % userIds.length],
     upvotes: 180 + sequence * 17,
