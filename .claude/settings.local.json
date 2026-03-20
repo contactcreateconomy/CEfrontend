@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev -- --port 3000)",
+      "Bash(git push origin main)",
+      "Bash(gh auth status)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run:*)",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 3000 | Select-Object -Unique LocalAddress,LocalPort,State,OwningProcess\")",
+      "Bash(powershell -Command \"Get-Process -Id 15864 | Select-Object Id,ProcessName,Path\")",
+      "Bash(powershell -Command \"Stop-Process -Id 15864 -Force\")",
+      "Bash(powershell -NoProfile -Command \"$port=3000; $listeners=Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if\\(-not $listeners\\){ Write-Output ''No listeners on port 3000.''; exit 0 }; Write-Output \\(''Killing PIDs on port 3000: '' + \\($listeners -join '', ''\\)\\); foreach\\($pid in $listeners\\){ Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue }; Start-Sleep -Milliseconds 300; $remaining=Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue; if\\($remaining\\){ Write-Output ''Warning: a listener is still active on port 3000.''; exit 1 } else { Write-Output ''Port 3000 is now free.'' }\")",
+      "Bash(powershell -NoProfile -Command '$port=3000; $listeners=Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if\\(-not $listeners\\){ Write-Output \"\"No listeners on port 3000.\"\"; exit 0 }; Write-Output \\(\"\"Killing PIDs on port 3000: \"\" + \\($listeners -join \"\", \"\"\\)\\); foreach\\($procId in $listeners\\){ Stop-Process -Id $procId -Force -ErrorAction SilentlyContinue }; Start-Sleep -Milliseconds 300; $remaining=Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue; if\\($remaining\\){ Write-Output \"\"Warning: a listener is still active on port 3000.\"\"; exit 1 } else { Write-Output \"\"Port 3000 is now free.\"\" }')",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/feed)",
+      "Bash(powershell -NoProfile -Command '$port=3000; $conns=Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue; if\\(-not $conns\\){ Write-Output \"\"No process is listening on port 3000.\"\"; exit 0 }; $pids=$conns | Select-Object -ExpandProperty OwningProcess -Unique; foreach\\($id in $pids\\){ $proc=Get-CimInstance Win32_Process -Filter \"\"ProcessId=$id\"\"; Write-Output \\(\"\"PID=\"\"+$id+\"\" Name=\"\"+$proc.Name+\"\" Cmd=\"\"+$proc.CommandLine\\) }')",
+      "Bash(powershell -NoProfile -Command 'Stop-Process -Id 20052 -Force; Start-Sleep -Milliseconds 300; $left=Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if\\($left\\){ Write-Output \"\"Port 3000 still occupied.\"\"; exit 1 } else { Write-Output \"\"Port 3000 cleared.\"\" }')",
+      "Bash(powershell -Command \"$conn = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conn\\) { $pids = $conn | Select-Object -ExpandProperty OwningProcess -Unique; foreach \\($procId in $pids\\) { Stop-Process -Id $procId -Force }; Write-Output \\(''Stopped process IDs: '' + \\($pids -join '', ''\\)\\) } else { Write-Output ''No process was listening on port 3000.'' }\")",
+      "Bash(powershell -NoProfile -Command '$conn = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conn\\) { $pids = $conn | Select-Object -ExpandProperty OwningProcess -Unique; foreach \\($procId in $pids\\) { Stop-Process -Id $procId -Force }; Write-Output \\(\"\"Stopped process IDs: \"\" + \\($pids -join \"\", \"\"\\)\\) } else { Write-Output \"\"No process was listening on port 3000.\"\" }')",
+      "Bash(ls \"C:/Users/akile/Documents/Createconomy/Design/createconomy-frontend/CEfrontend/src/app/\\(app\\)\")"
+    ]
+  }
+}
