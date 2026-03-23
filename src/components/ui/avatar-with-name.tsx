@@ -111,7 +111,7 @@ export function Component({
           style={avatarStyle}
         >
           {icon ? null : <AvatarImage src={src || "/placeholder.svg"} alt={name} />}
-          <AvatarFallback className={cn("font-semibold", icon ? "text-[var(--text-primary)]" : "text-muted-foreground")}>
+          <AvatarFallback className={cn("font-semibold", icon ? "text-(--text-primary)" : "text-muted-foreground")}>
             {icon ?? fallback ?? getInitials(name)}
           </AvatarFallback>
         </Avatar>

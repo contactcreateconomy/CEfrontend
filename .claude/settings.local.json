@@ -18,7 +18,13 @@
       "Bash(powershell -NoProfile -Command 'Stop-Process -Id 20052 -Force; Start-Sleep -Milliseconds 300; $left=Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if\\($left\\){ Write-Output \"\"Port 3000 still occupied.\"\"; exit 1 } else { Write-Output \"\"Port 3000 cleared.\"\" }')",
       "Bash(powershell -Command \"$conn = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conn\\) { $pids = $conn | Select-Object -ExpandProperty OwningProcess -Unique; foreach \\($procId in $pids\\) { Stop-Process -Id $procId -Force }; Write-Output \\(''Stopped process IDs: '' + \\($pids -join '', ''\\)\\) } else { Write-Output ''No process was listening on port 3000.'' }\")",
       "Bash(powershell -NoProfile -Command '$conn = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conn\\) { $pids = $conn | Select-Object -ExpandProperty OwningProcess -Unique; foreach \\($procId in $pids\\) { Stop-Process -Id $procId -Force }; Write-Output \\(\"\"Stopped process IDs: \"\" + \\($pids -join \"\", \"\"\\)\\) } else { Write-Output \"\"No process was listening on port 3000.\"\" }')",
-      "Bash(ls \"C:/Users/akile/Documents/Createconomy/Design/createconomy-frontend/CEfrontend/src/app/\\(app\\)\")"
+      "Bash(ls \"C:/Users/akile/Documents/Createconomy/Design/createconomy-frontend/CEfrontend/src/app/\\(app\\)\")",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(npx:*)"
     ]
   }
 }
